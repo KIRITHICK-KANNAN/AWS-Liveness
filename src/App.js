@@ -1,33 +1,28 @@
-import './App.css';
+import "./App.css";
 import React from "react";
-import { Amplify } from 'aws-amplify';
-import { ThemeProvider } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
-import FaceLiveness from './Components/FaceLiveness';
-import ReferenceImage from './Components/ReferenceImage';
-import {
-  View,
-  Flex,
-} from '@aws-amplify/ui-react';
+import { Amplify } from "aws-amplify";
+import { ThemeProvider } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+import FaceLiveness from "./Components/FaceLiveness";
+import ReferenceImage from "./Components/ReferenceImage";
+import { View, Flex } from "@aws-amplify/ui-react";
 
-import awsexports from './aws-exports';
+import awsexports from "./aws-exports";
 
 Amplify.configure(awsexports);
 
 function App() {
-
-  const [faceLivenessAnalysis, setFaceLivenessAnalysis] = React.useState(null)
+  const [faceLivenessAnalysis, setFaceLivenessAnalysis] = React.useState(null);
 
   const getfaceLivenessAnalysis = (faceLivenessAnalysis) => {
     if (faceLivenessAnalysis !== null) {
-      setFaceLivenessAnalysis(faceLivenessAnalysis)
+      setFaceLivenessAnalysis(faceLivenessAnalysis);
     }
-  }
+  };
 
-  const tryagain = () =>{
-    setFaceLivenessAnalysis(null)
-  }
-
+  const tryagain = () => {
+    setFaceLivenessAnalysis(null);
+  };
 
   return (
     <ThemeProvider>
@@ -47,15 +42,16 @@ function App() {
           maxWidth="740px"
         >
           {faceLivenessAnalysis && faceLivenessAnalysis.Confidence ? (
-            <ReferenceImage faceLivenessAnalysis={faceLivenessAnalysis} tryagain={tryagain}></ReferenceImage>
-          ) :
-            (<FaceLiveness faceLivenessAnalysis={getfaceLivenessAnalysis} />)}
-
+            <ReferenceImage
+              faceLivenessAnalysis={faceLivenessAnalysis}
+              tryagain={tryagain}
+            ></ReferenceImage>
+          ) : (
+            <FaceLiveness faceLivenessAnalysis={getfaceLivenessAnalysis} />
+          )}
         </View>
       </Flex>
     </ThemeProvider>
-
-
   );
 }
 
