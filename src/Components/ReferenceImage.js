@@ -192,6 +192,9 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Confidence Score: {faceLivenessAnalysis.Confidence.toFixed(2)}%
       </Alert>
+      <Alert variation="info" isDismissible={false} hasIcon={false}>
+        Confidence Score: {faceLivenessAnalysis.Confidence.toFixed(2)}%
+      </Alert>
 
       <Button
         variation="primary"
