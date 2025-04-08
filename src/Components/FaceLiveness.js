@@ -69,7 +69,8 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       faceLivenessAnalysis(result);
     } catch (err) {
       console.error("Error fetching liveness results:", err);
-      alert("There was an error analyzing the face. Please try again.");
+      // alert("There was an error analyzing the face. Please try again.");
+      alert("Face not detected as live. Please try again with a real face.");
     }
   };
 
