@@ -45,6 +45,7 @@ function App() {
             <ReferenceImage
               faceLivenessAnalysis={faceLivenessAnalysis}
               tryagain={tryagain}
+              sendToAPI={sendToAPI}
             ></ReferenceImage>
           ) : (
             <FaceLiveness faceLivenessAnalysis={getfaceLivenessAnalysis} />
