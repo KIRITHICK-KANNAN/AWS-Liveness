@@ -189,13 +189,13 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Status: {faceLivenessAnalysis.Status}
       </Alert>
+      aacsdsdsdfsdf
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Confidence Score: {faceLivenessAnalysis.Confidence.toFixed(2)}%
       </Alert>
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Confidence Score: {faceLivenessAnalysis.Confidence.toFixed(2)}%
       </Alert>
-
       <Button
         variation="primary"
         type="submit"
@@ -205,7 +205,6 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       >
         Try Again
       </Button>
-
       <Button
         variation="primary"
         type="submit"
@@ -215,7 +214,6 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       >
         Send to API
       </Button>
-
       <Image
         src={
           "data:image/jpeg;base64," + faceLivenessAnalysis.ReferenceImage.Bytes
