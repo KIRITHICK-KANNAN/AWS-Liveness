@@ -64,15 +64,12 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
       if (result.Confidence < 0.9) {
         alert("Face not detected as live. Please try again with a real face.");
-        faceLivenessAnalysis(null); // pass null to indicate failure
-        return; // important to stop further c
       }
 
       faceLivenessAnalysis(result);
     } catch (err) {
       console.error("Error fetching liveness results:", err);
-      // alert("There was an error analyzing the face. Please try again.");
-      alert(" Please try again with a real face.");
+      alert("There was an error analyzing the face. Please try again.");
     }
   };
 
