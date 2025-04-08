@@ -173,6 +173,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       console.error("❌ Error sending image to API:", error.response || error);
       alert("❌ Failed to send image to the API.");
     }
+    console.log(faceLivenessAnalysis);
   };
 
   return (
@@ -191,16 +192,6 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Confidence Score: {faceLivenessAnalysis.Confidence.toFixed(2)}%
       </Alert>
-
-      <Button
-        variation="primary"
-        type="submit"
-        marginTop={tokens.space.large}
-        marginBottom={tokens.space.large}
-        onClick={tryagain}
-      >
-        Try Again
-      </Button>
 
       <Button
         variation="primary"
