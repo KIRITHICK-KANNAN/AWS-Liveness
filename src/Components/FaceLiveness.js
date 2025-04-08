@@ -60,7 +60,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       const data = await response.json();
       const result = data.body;
 
-      console.log("Liveness result:", result);
+      // console.log("Liveness result:", result);
 
       if (result.Confidence < 0.9) {
         alert("Face not detected as live. Please try again with a real face.");
