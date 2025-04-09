@@ -4,7 +4,14 @@ import { Loader } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
 
-function FaceLiveness({ faceLivenessAnalysis, session_id, session_token }) {
+function FaceLiveness({ faceLivenessAnalysis }) {
+  const search = window.location.search;
+  const params = new URLSearchParams(search);
+  const session_id = params.get("session_id");
+  const session_token = params.get("session_token");
+  console.log("session_id", session_id);
+  console.log("session_token", session_token);
+
   const [loading, setLoading] = React.useState(true);
   const [sessionId, setSessionId] = React.useState(null);
 
