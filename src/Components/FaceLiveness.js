@@ -4,7 +4,7 @@ import { Loader } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
 
-function FaceLiveness({ faceLivenessAnalysis }) {
+function FaceLiveness({ faceLivenessAnalysis, session_id, session_token }) {
   const [loading, setLoading] = React.useState(true);
   const [sessionId, setSessionId] = React.useState(null);
 
