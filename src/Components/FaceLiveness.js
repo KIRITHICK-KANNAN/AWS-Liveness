@@ -25,27 +25,6 @@ function FaceLiveness({ faceLivenessAnalysis }) {
     fetchCreateLiveness();
   }, []);
 
-  /*
-   * Get the Face Liveness Session Result
-   */
-  // const handleAnalysisComplete = async () => {
-  //     /*
-  //      * API call to get the Face Liveness Session result
-  //      */
-  //     const response = await fetch(endpoint + 'getfacelivenesssessionresults',
-  //         {
-  //             method: 'POST',
-  //             headers: {
-  //                 'Accept': 'application/json',
-  //                 'Content-Type': 'application/json'
-  //             },
-  //             body: JSON.stringify({ sessionid: sessionId })
-  //         }
-
-  //     );
-  //     const data = await response.json();
-  //     faceLivenessAnalysis(data.body)
-  // };
   const handleAnalysisComplete = async () => {
     try {
       const response = await fetch(endpoint + "getfacelivenesssessionresults", {
@@ -60,8 +39,8 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       const data = await response.json();
       const result = data.body;
 
-      // console.log("Liveness result:", result);
-
+      console.log("Liveness result:", result);
+      //
       if (result.Confidence < 0.9) {
         alert("Face not detected as live. Please try again with a real face.");
       }
