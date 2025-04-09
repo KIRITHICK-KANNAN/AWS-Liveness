@@ -40,6 +40,27 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       const result = data.body;
 
       console.log("Liveness result:", result);
+      if (data.statusCode == 200) {
+        if (data.body.Status == "SUCCEEDED") {
+          const _response = await fetch(
+            "https://vfseu.mioot.com/forms/UAT/PhotoVerify/api/uploadImages/uploadCapture.php",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: {
+                session_id: session_id,
+                session_token: session_token,
+                image: data.body.ReferenceImage.Bytes,
+              },
+            }
+          );
+          const data = await response.json();
+          console.log("data:::", _data);
+          if ((data.status = 1)) {
+          } else {
+          }
+        }
+      }
       //
       if (result.Confidence < 0.9) {
         alert("Face not detected as live. Please try again with a real face.");
