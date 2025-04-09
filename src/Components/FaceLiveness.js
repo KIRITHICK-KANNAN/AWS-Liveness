@@ -39,7 +39,7 @@ function FaceLiveness({ faceLivenessAnalysis, session_id, session_token }) {
       const data = await response.json();
       const result = data.body;
 
-      console.log("Liveness result:", result);
+      console.log("Liveness result:", session_id, session_token, result);
       if (data.statusCode == 200) {
         if (data.body.Status == "SUCCEEDED") {
           const _response = await fetch(
