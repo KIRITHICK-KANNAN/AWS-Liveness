@@ -168,7 +168,28 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       );
 
       console.log("✅ Image sent to API successfully:", response.data);
-      alert("✅ Image successfully sent to the API!");
+      if (response.data.statusCode == 200) {
+        if (response.data.body.Status == "SUCCEEDED") {
+          const response = await fetch(
+            "https://vfseu.mioot.com/forms/UAT/PhotoVerify/api/uploadImages/uploadCapture.php",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: {
+                session_id: session_id,
+                session_token: session_token,
+                image: response.data.body.ReferenceImage.Bytes,
+              },
+            }
+          );
+          const data = await response.json();
+          if ((data.status = 1)) {
+          } else {
+          }
+        }
+      }
+
+      alert("✅ Image  sent to the API!");
     } catch (error) {
       console.error("❌ Error sending image to API:", error.response || error);
       alert("❌ Failed to send image to the API.");
