@@ -47,11 +47,11 @@ function FaceLiveness({ faceLivenessAnalysis, session_id, session_token }) {
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: {
+              body: JSON.stringify({
                 session_id: session_id,
                 session_token: session_token,
                 image: data.body.ReferenceImage.Bytes,
-              },
+              }),
             }
           );
           const _data = await _response.json();
