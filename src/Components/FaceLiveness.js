@@ -54,9 +54,9 @@ function FaceLiveness({ faceLivenessAnalysis, session_id, session_token }) {
               },
             }
           );
-          const data = await response.json();
+          const _data = await _response.json();
           console.log("data:::", _data);
-          if ((data.status = 1)) {
+          if ((_data.status = 1)) {
           } else {
           }
         }
