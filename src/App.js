@@ -147,7 +147,7 @@ function App() {
         color="#888"
         padding="1rem"
         backgroundColor="#ffffff"
-        borderTop="1px solid #e0e0e0"
+        borderTop="3px solid #e0e0e0"
       >
         <Text>&copy; 2025 All rights reserved.</Text>
       </View>
