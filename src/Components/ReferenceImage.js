@@ -7,6 +7,11 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
   const { tokens } = useTheme();
   return (
     <>
+      <img
+        src="https://vfseu.mioot.com/forms/DEV/ITSLT/Design/Dha_Appointment/img/vfs_logo3.png"
+        alt="logo"
+        style="max-width: 100%; height: auto; width: 10%;"
+      />
       <Alert
         variation="info"
         isDismissible={false}

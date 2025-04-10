@@ -145,7 +145,7 @@ function App() {
         boxShadow="0 -2px 4px rgba(0, 0, 0, 0.1)"
       >
         <Text>
-          &copy; {new getFullYear()} All rights reserved.
+          &copy; 2025 All rights reserved.
         </Text>
       </View>
     </ThemeProvider>
