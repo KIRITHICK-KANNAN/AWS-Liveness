@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Loader } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
-import Header from "./Header";
 
 function FaceLiveness({ faceLivenessAnalysis }) {
   const search = window.location.search;
@@ -84,6 +83,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
   return (
     <>
+    <Header/>
       {loading ? (
         <Loader />
       ) : (
