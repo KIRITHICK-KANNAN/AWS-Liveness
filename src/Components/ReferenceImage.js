@@ -1,12 +1,13 @@
 import React from "react";
 import "@aws-amplify/ui-react/styles.css";
-
+import Header from "./Header";
 import { Alert, Image, useTheme, Button } from "@aws-amplify/ui-react";
 
 function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
   const { tokens } = useTheme();
   return (
     <>
+      <Header />
       <Alert
         variation="info"
         isDismissible={false}
