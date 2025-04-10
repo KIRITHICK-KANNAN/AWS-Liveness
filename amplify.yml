@@ -15,3 +15,6 @@ frontend:
   cache:
     paths:
       - src/frontend/node_modules/**/*
+preBuild:
+  commands:
+    - cd src/frontend
