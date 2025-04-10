@@ -215,12 +215,12 @@ function App() {
       >
         <View
           backgroundColor="#ffffff"
-          padding="2rem"
+          padding="1.5rem"
           borderRadius="1rem"
-          boxShadow="0 0 15px rgba(0, 0, 0, 0.1)"
+          boxShadow="0 0 10px rgba(0, 0, 0, 0.08)"
           width="100%"
-          maxWidth="750px"
-          minHeight="600px"
+          maxWidth="600px"
+          minHeight="300px"
         >
           {faceLivenessAnalysis?.Confidence ? (
             <ReferenceImage
