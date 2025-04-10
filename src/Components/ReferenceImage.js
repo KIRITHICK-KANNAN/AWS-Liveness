@@ -7,6 +7,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
   const { tokens } = useTheme();
   return (
     <>
+      <h6>Photo</h6>
       <Alert
         variation="info"
         isDismissible={false}
@@ -21,7 +22,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Confidence Score: {faceLivenessAnalysis.Confidence.toFixed(2)}%
       </Alert>
-
+      <Header />
       <Button
         variation="primary"
         type="submit"
