@@ -84,7 +84,6 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
   return (
     <>
-    <Header/>
       {loading ? (
         <Loader />
       ) : (
