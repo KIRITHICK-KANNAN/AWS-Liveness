@@ -7,7 +7,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
   const { tokens } = useTheme();
   return (
     <>
-      <Header />
+      <h1>pic</h1>
       <Alert
         variation="info"
         isDismissible={false}
@@ -16,6 +16,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       >
         Session ID: {faceLivenessAnalysis.SessionId}
       </Alert>
+      <Header />
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Status: {faceLivenessAnalysis.Status}
       </Alert>
