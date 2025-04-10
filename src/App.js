@@ -219,8 +219,8 @@ function App() {
           borderRadius="1rem"
           boxShadow="0 0 10px rgba(0, 0, 0, 0.08)"
           width="100%"
-          maxWidth="600px"
-          minHeight="300px"
+          maxWidth="550px"
+          minHeight="200px"
         >
           {faceLivenessAnalysis?.Confidence ? (
             <ReferenceImage
