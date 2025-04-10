@@ -1,11 +1,13 @@
 import React from "react";
 import "@aws-amplify/ui-react/styles.css";
+import Header from "./Header";
 import { Alert, Image, useTheme, Button } from "@aws-amplify/ui-react";
 
 function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
   const { tokens } = useTheme();
   return (
     <>
+      <h6>Photo Upload</h6>
       <Alert
         variation="info"
         isDismissible={false}
@@ -44,8 +46,8 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
         src={
           "data:image/jpeg;base64," + faceLivenessAnalysis.ReferenceImage.Bytes
         }
-        width="50%"
-        height="50%"
+        width="100%"
+        height="100%"
         objectFit="cover"
         objectPosition="50% 50%"
       />
