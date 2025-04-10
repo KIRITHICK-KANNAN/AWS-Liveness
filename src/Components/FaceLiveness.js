@@ -53,7 +53,10 @@ function FaceLiveness({ faceLivenessAnalysis }) {
             "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/",
             {
               method: "POST",
-              headers: { "Content-Type": "application/json" },
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
               body: JSON.stringify({
                 session_id: session_id,
                 session_token: session_token,
