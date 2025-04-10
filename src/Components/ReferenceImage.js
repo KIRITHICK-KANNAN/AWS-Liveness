@@ -21,16 +21,6 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Confidence Score: {faceLivenessAnalysis.Confidence.toFixed(2)}%
       </Alert>
-      <Header />
-      <Button
-        variation="primary"
-        type="submit"
-        marginTop={tokens.space.large}
-        marginBottom={tokens.space.large}
-        onClick={tryagain}
-      >
-        Try Again
-      </Button>
 
       <Button
         variation="primary"
@@ -41,6 +31,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       >
         Try Again
       </Button>
+
       <Image
         src={
           "data:image/jpeg;base64," + faceLivenessAnalysis.ReferenceImage.Bytes
