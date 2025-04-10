@@ -50,7 +50,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       if (data.statusCode == 200) {
         if (data.body.Status == "SUCCEEDED") {
           const _response = await fetch(
-            "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/TestMain.php",
+            "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
