@@ -92,39 +92,42 @@ function App() {
 
   return (
     <ThemeProvider>
-      {/* Custom Header */}
+      {/* Header */}
       <View
-        as="nav"
-        padding="1rem"
-        backgroundColor="#f8f9fa"
-        boxShadow="0 0 1rem rgba(0, 0, 0, 0.2)"
+        as="header"
+        backgroundColor="#ffffff"
+        padding="1rem 2rem"
+        boxShadow="0 2px 4px rgba(0,0,0,0.1)"
         position="fixed"
-        top="0"
         width="100%"
-        zIndex="1000"
-        display="flex"
-        justifyContent="flex-start"
-        alignItems="center"
+        top="0"
+        zIndex="10"
       >
         <Image
           src="https://vfseu.mioot.com/forms/DEV/ITSLT/Design/Dha_Appointment/img/vfs_logo3.png"
           alt="logo"
-          width="100px"
-          height="auto"
+          width="180px"
         />
       </View>
 
       {/* Main Content */}
       <Flex
-        direction="row"
+        direction="column"
         justifyContent="center"
         alignItems="center"
-        paddingTop="6rem" // for sticky header space
-        padding="2rem"
-        minHeight="80vh"
-        backgroundColor="background.secondary"
+        minHeight="100vh"
+        paddingTop="6rem"
+        backgroundColor="#f4f4f4"
       >
-        <View maxHeight="600px" height="600px" width="740px" maxWidth="740px">
+        <View
+          backgroundColor="#ffffff"
+          padding="2rem"
+          borderRadius="1rem"
+          boxShadow="0 0 15px rgba(0, 0, 0, 0.1)"
+          width="100%"
+          maxWidth="750px"
+          minHeight="600px"
+        >
           {faceLivenessAnalysis?.Confidence ? (
             <ReferenceImage
               faceLivenessAnalysis={faceLivenessAnalysis}
@@ -139,14 +142,14 @@ function App() {
       {/* Footer */}
       <View
         as="footer"
-        backgroundColor="#f8f9fa"
-        padding="1rem"
         textAlign="center"
-        boxShadow="0 -2px 4px rgba(0, 0, 0, 0.1)"
+        fontSize="0.875rem"
+        color="#888"
+        padding="1rem"
+        backgroundColor="#ffffff"
+        borderTop="1px solid #e0e0e0"
       >
-        <Text>
-          &copy; 2025 All rights reserved.
-        </Text>
+        <Text>&copy; 2025 All rights reserved.</Text>
       </View>
     </ThemeProvider>
   );
