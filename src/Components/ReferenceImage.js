@@ -1,5 +1,6 @@
 import React from "react";
 import "@aws-amplify/ui-react/styles.css";
+<<<<<<< HEAD
 import Header from "./Header";
 import { Alert, Image, useTheme, Button } from "@aws-amplify/ui-react";
 
@@ -32,6 +33,56 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       >
         Try Again
       </Button>
+=======
+
+import { Alert, Image, useTheme, Button } from "@aws-amplify/ui-react";
+import Header from "./Header";
+
+function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
+  const { tokens } = useTheme();
+  return (
+    <>
+      <Header />
+      <Alert
+        variation="info"
+        isDismissible={false}
+        hasIcon={false}
+        marginTop={tokens.space.large}
+      >
+        Session ID: {faceLivenessAnalysis.SessionId}
+      </Alert>
+      <Alert variation="info" isDismissible={false} hasIcon={false}>
+        Status: {faceLivenessAnalysis.Status}
+      </Alert>
+      <Alert variation="info" isDismissible={false} hasIcon={false}>
+        Confidence Score: {faceLivenessAnalysis.Confidence.toFixed(2)}%
+      </Alert>
+>>>>>>> 4f4770880be824514c69f3713cb4d56a107d2ae9
+
+      <Button
+        variation="primary"
+        type="submit"
+        marginTop={tokens.space.large}
+        marginBottom={tokens.space.large}
+        onClick={tryagain}
+      >
+        Try Again
+      </Button>
+<<<<<<< HEAD
+      <Image
+        src={
+          "data:image/jpeg;base64," + faceLivenessAnalysis.ReferenceImage.Bytes
+        }
+        width="100%"
+        height="100%"
+        objectFit="cover"
+        objectPosition="50% 50%"
+      />
+    </>
+  );
+}
+
+=======
 
       <Button
         variation="primary"
@@ -55,6 +106,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
   );
 }
 
+>>>>>>> 4f4770880be824514c69f3713cb4d56a107d2ae9
 export default ReferenceImage;
 
 // import React from "react";
