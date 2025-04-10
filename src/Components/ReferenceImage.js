@@ -6,7 +6,6 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
   const { tokens } = useTheme();
   return (
     <>
-      <h6>photo</h6>
       <Alert
         variation="info"
         isDismissible={false}
