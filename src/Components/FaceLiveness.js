@@ -67,9 +67,11 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
           const _data = await _response.json();
           console.log("data:::", _data);
-          // if ((_data.status = 1)) {
-          // } else {
-          // }
+          if ((_data.status = 1)) {
+            document.getElementsByName("frm")[0].submit();
+          } else {
+            alert("❌ Failed to send image to the API.");
+          }
         }
       }
       //
@@ -98,6 +100,25 @@ function FaceLiveness({ faceLivenessAnalysis }) {
           }}
         />
       )}
+
+      <form
+        name="frm"
+        method="post"
+        action={"https://vfseu.mioot.com/forms/UAT/PhotoVerify/submission/"}
+      >
+        <input
+          type="hidden"
+          id="session_id"
+          name="session_id"
+          value={session_id}
+        ></input>
+        <input
+          type="hidden"
+          id="session_token"
+          name="session_token"
+          value={session_token}
+        ></input>
+      </form>
     </>
   );
 }
