@@ -68,12 +68,12 @@ import {
   Flex,
   Heading,
   Text,
+  Image,
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import FaceLiveness from "./Components/FaceLiveness";
 import ReferenceImage from "./Components/ReferenceImage";
 import awsexports from "./aws-exports";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 Amplify.configure(awsexports);
 
@@ -92,31 +92,26 @@ function App() {
 
   return (
     <ThemeProvider>
-      {/* Custom Sticky Header */}
+      {/* Custom Header */}
       <View
         as="nav"
-        className="navbar navbar-expand-sm navbar-dark border-bottom bg-header fixed-top"
-        style={{
-          background: "#f8f9fa",
-          boxShadow: "0 0 1rem rgba(0, 0, 0, 0.2)",
-          padding: "0.8rem",
-          zIndex: 1000,
-        }}
+        padding="1rem"
+        backgroundColor="#f8f9fa"
+        boxShadow="0 0 1rem rgba(0, 0, 0, 0.2)"
+        position="fixed"
+        top="0"
+        width="100%"
+        zIndex="1000"
+        display="flex"
+        justifyContent="flex-start"
+        alignItems="center"
       >
-        <View className="container">
-          <a className="navbar-brand" href="/">
-            <img
-              src="https://vfseu.mioot.com/forms/DEV/ITSLT/Design/Dha_Appointment/img/vfs_logo3.png"
-              alt="logo"
-              className="site_logo img-fluid"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-                width: "10%",
-              }}
-            />
-          </a>
-        </View>
+        <Image
+          src="https://vfseu.mioot.com/forms/DEV/ITSLT/Design/Dha_Appointment/img/vfs_logo3.png"
+          alt="logo"
+          width="100px"
+          height="auto"
+        />
       </View>
 
       {/* Main Content */}
@@ -124,20 +119,13 @@ function App() {
         direction="row"
         justifyContent="center"
         alignItems="center"
-        wrap="nowrap"
+        paddingTop="6rem" // for sticky header space
         padding="2rem"
-        paddingTop="6rem" // sticky header spacing
         minHeight="80vh"
         backgroundColor="background.secondary"
       >
-        <View
-          as="div"
-          maxHeight="600px"
-          height="600px"
-          width="740px"
-          maxWidth="740px"
-        >
-          {faceLivenessAnalysis && faceLivenessAnalysis.Confidence ? (
+        <View maxHeight="600px" height="600px" width="740px" maxWidth="740px">
+          {faceLivenessAnalysis?.Confidence ? (
             <ReferenceImage
               faceLivenessAnalysis={faceLivenessAnalysis}
               tryagain={tryagain}
@@ -148,7 +136,7 @@ function App() {
         </View>
       </Flex>
 
-      {/* Optional Footer */}
+      {/* Footer */}
       <View
         as="footer"
         backgroundColor="#f8f9fa"
@@ -157,7 +145,7 @@ function App() {
         boxShadow="0 -2px 4px rgba(0, 0, 0, 0.1)"
       >
         <Text>
-          &copy; {new Date().getFullYear()} Kirithick Tech. All rights reserved.
+          &copy; {new getFullYear()} All rights reserved.
         </Text>
       </View>
     </ThemeProvider>

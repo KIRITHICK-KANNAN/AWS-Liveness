@@ -31,7 +31,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       >
         Try Again
       </Button>
-
+      {/* 
       <Button
         variation="primary"
         type="submit"
@@ -40,7 +40,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
         onClick={tryagain}
       >
         Try Again
-      </Button>
+      </Button> */}
       <Image
         src={
           "data:image/jpeg;base64," + faceLivenessAnalysis.ReferenceImage.Bytes
