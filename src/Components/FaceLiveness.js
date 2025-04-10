@@ -154,21 +154,12 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       if (data.statusCode === 200 && result.Status === "SUCCEEDED") {
         // 🟢 Step 1: Call the Test API
         const testResponse = await fetch(
-          "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              session_id: session_id,
-              session_token: session_token,
-            }),
-          }
+          "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/"
         );
 
-        const testData = await testResponse.json();
-        console.log("Test API response:", testData);
+        const testData = await testResponse.text(); // assuming it's HTML/text response
+        console.log("Test GET API response:", testData);
 
-        // 🟢 Step 2: Upload image
         const uploadResponse = await fetch(
           "https://vfseu.mioot.com/forms/UAT/PhotoVerify/api/uploadImages/uploadCapture.php",
           {
