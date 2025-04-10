@@ -31,15 +31,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
       >
         Try Again
       </Button>
-      <Button
-        variation="primary"
-        type="submit"
-        marginTop={tokens.space.large}
-        marginBottom={tokens.space.large}
-        onClick={tryagain}
-      >
-        Try Again
-      </Button>
+
       <Button
         variation="primary"
         type="submit"
