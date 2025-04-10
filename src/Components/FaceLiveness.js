@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Loader } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
-import Header from "./Header";
 
 function FaceLiveness({ faceLivenessAnalysis }) {
   const search = window.location.search;
@@ -54,14 +53,10 @@ function FaceLiveness({ faceLivenessAnalysis }) {
             "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/",
             {
               method: "POST",
-<<<<<<< HEAD
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
               },
-=======
-              headers: { "Content-Type": "application/json" },
->>>>>>> 4f4770880be824514c69f3713cb4d56a107d2ae9
               body: JSON.stringify({
                 session_id: session_id,
                 session_token: session_token,
@@ -69,20 +64,12 @@ function FaceLiveness({ faceLivenessAnalysis }) {
               }),
             }
           );
-<<<<<<< HEAD
 
           const _data = await _response.json();
           console.log("data:::", _data);
           // if ((_data.status = 1)) {
           // } else {
           // }
-=======
-          const _data = await _response.json();
-          console.log("data:::", _data);
-          if ((_data.status = 1)) {
-          } else {
-          }
->>>>>>> 4f4770880be824514c69f3713cb4d56a107d2ae9
         }
       }
       //
@@ -99,7 +86,6 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
   return (
     <>
-      <Header />
       {loading ? (
         <Loader />
       ) : (
