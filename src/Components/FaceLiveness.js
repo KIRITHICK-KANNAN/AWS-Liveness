@@ -161,7 +161,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
         console.log("Test GET API response:", testData);
 
         const uploadResponse = await fetch(
-          "https://vfseu.mioot.com/forms/UAT/PhotoVerify/api/uploadImages/uploadCapture.php",
+          "https://vfseu.mioot.com/forms/UAT/PhotoVerify/api/uploadImages/uploadCapture/",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
