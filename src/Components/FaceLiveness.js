@@ -64,9 +64,9 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
           const _data = await _response.json();
           console.log("data:::", _data);
-          if ((_data.status = 1)) {
-          } else {
-          }
+          // if ((_data.status = 1)) {
+          // } else {
+          // }
         }
       }
       //
@@ -83,7 +83,6 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
   return (
     <>
-    <Header/>
       {loading ? (
         <Loader />
       ) : (
