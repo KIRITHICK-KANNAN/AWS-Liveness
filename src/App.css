@@ -41,3 +41,17 @@
     transform: rotate(360deg);
   }
 }
+
+button.amplify-button.amplify-field-group__control.amplify-button--primary {
+  background: #f05a22;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.amplify-flex {
+  padding: 1rem 1rem !important;
+}
+
+.amplify-flex.amplify-alert.amplify-liveness-start-screen-warning {
+  background: red !important;
+  display: none;
+}

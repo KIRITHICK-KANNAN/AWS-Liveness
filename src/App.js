@@ -200,7 +200,7 @@ function App() {
         <Image
           src="https://vfseu.mioot.com/forms/DEV/ITSLT/Design/Dha_Appointment/img/vfs_logo3.png"
           alt="logo"
-          width="180px"
+          width="125px"
         />
       </View>
 
