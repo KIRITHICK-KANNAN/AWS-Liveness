@@ -142,6 +142,7 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
         marginTop={tokens.space.large}
         marginBottom={tokens.space.large}
         onClick={tryagain}
+        style={{ display: "none" }}
       >
         Try Again
       </Button>
