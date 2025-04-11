@@ -73,11 +73,16 @@ button.amplify-button.amplify-field-group__control.amplify-button--primary {
   background: red !important;
   display: none;
 }
-.amplify-liveness-camera-module
+/* .amplify-liveness-camera-module
 {
   border : none !important;
+} */
+.amplify-liveness-overlay {
+  padding: 0.5rem !important;
 }
- 
+.amplify-flex {
+  margin-bottom: 3rem;
+}
 
 @media (max-width: 767px) {
 }
