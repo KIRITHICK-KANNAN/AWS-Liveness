@@ -124,13 +124,11 @@
 // }
 
 // export default FaceLiveness;
-
-
-
 import React, { useEffect, useState } from "react";
 import { Loader } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
+import ReferenceImage from "./ReferenceImage"; // Make sure this file is imported correctly
 
 function FaceLiveness({ faceLivenessAnalysis }) {
   const search = window.location.search;
@@ -140,7 +138,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
   const [loading, setLoading] = useState(true);
   const [sessionId, setSessionId] = useState(null);
-  const [livenessSuccess, setLivenessSuccess] = useState(false); // NEW FLAG
+  const [livenessResult, setLivenessResult] = useState(null);
 
   const endpoint = process.env.REACT_APP_ENV_API_URL || "";
 
@@ -168,7 +166,13 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       const data = await response.json();
       const result = data.body;
 
-      if (data.statusCode === 200 && result.Status === "SUCCEEDED") {
+      console.log("Liveness result:", session_id, session_token, result);
+
+      if (
+        data.statusCode === 200 &&
+        result.Status === "SUCCEEDED" &&
+        result.Confidence >= 0.9
+      ) {
         const _response = await fetch(
           "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/",
           {
@@ -186,16 +190,16 @@ function FaceLiveness({ faceLivenessAnalysis }) {
         );
 
         const _data = await _response.json();
+        console.log("data:::", _data);
+
         if (_data.status === 1) {
-          setLivenessSuccess(true); // Mark it successful for form rendering
+          setLivenessResult(result);
           document.getElementsByName("frm")[0].submit();
         } else {
           alert("❌ Failed to send image to the API.");
         }
-      }
-
-      if (result.Confidence < 0.9) {
-        alert("Face not detected as live. Please try again with a real face.");
+      } else {
+        alert("Face not detected as live or session failed. Please try again.");
       }
 
       faceLivenessAnalysis(result);
@@ -214,30 +218,37 @@ function FaceLiveness({ faceLivenessAnalysis }) {
           sessionId={sessionId}
           region="us-east-1"
           onAnalysisComplete={handleAnalysisComplete}
-          onError={(error) => console.error(error)}
+          onError={(error) => {
+            console.error(error);
+          }}
         />
       )}
 
-      {livenessSuccess && (
-        <form
-          name="frm"
-          method="post"
-          action="https://vfseu.mioot.com/forms/UAT/PhotoVerify/submission/"
-        >
-          <input
-            type="hidden"
-            id="session_id"
-            name="session_id"
-            value={session_id}
-          />
-          <input
-            type="hidden"
-            id="session_token"
-            name="session_token"
-            value={session_token}
-          />
-        </form>
+      {livenessResult && (
+        <ReferenceImage
+          faceLivenessAnalysis={livenessResult}
+          tryagain={() => window.location.reload()}
+        />
       )}
+
+      <form
+        name="frm"
+        method="post"
+        action="https://vfseu.mioot.com/forms/UAT/PhotoVerify/submission/"
+      >
+        <input
+          type="hidden"
+          id="session_id"
+          name="session_id"
+          value={session_id}
+        />
+        <input
+          type="hidden"
+          id="session_token"
+          name="session_token"
+          value={session_token}
+        />
+      </form>
     </>
   );
 }
