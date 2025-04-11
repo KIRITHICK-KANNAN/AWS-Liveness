@@ -118,14 +118,16 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
 
   return (
     <>
-      <Alert
-        variation="info"
-        isDismissible={false}
-        hasIcon={false}
-        marginTop={tokens.space.large}
-      >
-        Session ID: {faceLivenessAnalysis.SessionId}
-      </Alert>
+      <div className="" style={{ display: "none" }}>
+        <Alert
+          variation="info"
+          isDismissible={false}
+          hasIcon={false}
+          marginTop={tokens.space.large}
+        >
+          Session ID: {faceLivenessAnalysis.SessionId}
+        </Alert>
+      </div>
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Status: {faceLivenessAnalysis.Status}
       </Alert>
