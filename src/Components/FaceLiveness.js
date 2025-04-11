@@ -361,7 +361,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
       {livenessResult?.error && (
         <ReferenceImage
-          // faceLivenessAnalysis={livenessResult}
+          faceLivenessAnalysis={livenessResult}
           tryagain={() => window.location.reload()}
         />
       )}
