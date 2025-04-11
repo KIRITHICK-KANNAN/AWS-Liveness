@@ -127,13 +127,13 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
         >
           Session ID: {faceLivenessAnalysis.SessionId}
         </Alert>
+        <Alert variation="info" isDismissible={false} hasIcon={false}>
+          Confidence Score:{" "}
+          {faceLivenessAnalysis.Confidence?.toFixed(2) ?? "N/A"}%
+        </Alert>
       </div>
       <Alert variation="info" isDismissible={false} hasIcon={false}>
         Status: {faceLivenessAnalysis.Status}
-      </Alert>
-      <Alert variation="info" isDismissible={false} hasIcon={false}>
-        Confidence Score: {faceLivenessAnalysis.Confidence?.toFixed(2) ?? "N/A"}
-        %
       </Alert>
 
       <Button
