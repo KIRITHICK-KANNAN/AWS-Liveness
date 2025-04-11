@@ -50,8 +50,23 @@ button.amplify-button.amplify-field-group__control.amplify-button--primary {
 .amplify-flex {
   padding: 1rem 1rem !important;
 }
-
+.amplify-flex.liveness-detector-check {
+  gap: 0;
+}
+.amplify-liveness-toast.amplify-liveness-toast--primary.amplify-liveness-toast--large {
+  background: transparent !important;
+  font-size: 1.2rem !important;
+  margin-top: -30px;
+  margin-top: -30px;
+  margin-left: 72px;
+}
+.amplify-liveness-camera-module {
+  background-color: transparent !important;
+}
 .amplify-flex.amplify-alert.amplify-liveness-start-screen-warning {
   background: red !important;
   display: none;
+}
+
+@media (max-width: 767px) {
 }

@@ -242,6 +242,7 @@ function App() {
         padding="1rem"
         backgroundColor="#ffffff"
         borderTop="3px solid #e0e0e0"
+        margin-top="3rem"
       >
         <Text>&copy; 2025 All rights reserved.</Text>
       </View>
