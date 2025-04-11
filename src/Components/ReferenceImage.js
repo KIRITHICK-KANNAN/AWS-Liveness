@@ -184,7 +184,12 @@ function ReferenceImage({ faceLivenessAnalysis, tryagain }) {
           {faceLivenessAnalysis.Confidence?.toFixed(2) ?? "N/A"}%
         </Alert>
       </div>
-      <Alert variation="info" isDismissible={false} hasIcon={false}>
+      <Alert
+        variation="success"
+        isDismissible={false}
+        hasIcon={false}
+        style={{ paddingBottom: "1rem" }}
+      >
         Status: {faceLivenessAnalysis.Status}{" "}
         {faceLivenessAnalysis.Status === "SUCCEEDED"
           ? "  ...Processing Please Wait "
