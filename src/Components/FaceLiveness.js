@@ -256,12 +256,11 @@
 // }
 
 // export default FaceLiveness;
-
 import React, { useEffect, useState } from "react";
 import { Loader } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
-import ReferenceImage from "./ReferenceImage"; // Only shown if FAILED
+import ReferenceImage from "./ReferenceImage"; // Keep this if you still want to show in failure cases
 
 function FaceLiveness({ faceLivenessAnalysis }) {
   const search = window.location.search;
@@ -271,7 +270,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
   const [loading, setLoading] = useState(true);
   const [sessionId, setSessionId] = useState(null);
-  const [livenessResult, setLivenessResult] = useState(null); // only shown on failure
+  const [livenessResult, setLivenessResult] = useState(null);
 
   const endpoint = process.env.REACT_APP_ENV_API_URL || "";
 
@@ -306,7 +305,6 @@ function FaceLiveness({ faceLivenessAnalysis }) {
         result.Status === "SUCCEEDED" &&
         result.Confidence >= 0.9
       ) {
-        // Successful, send image to external API
         const _response = await fetch(
           "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/",
           {
@@ -324,24 +322,25 @@ function FaceLiveness({ faceLivenessAnalysis }) {
         );
 
         const _data = await _response.json();
-        console.log("data:::", _data);
+        console.log("Verification API Response:", _data);
 
         if (_data.status === 1) {
-          // Submit the hidden form only on success
+          // ✅ Directly submit the form, skip intermediate screen
           document.getElementsByName("frm")[0].submit();
         } else {
-          alert("❌ Failed to send image to the API.");
-          setLivenessResult(result); // Show ReferenceImage if image send fails
+          alert("❌ Failed to send image to the verification API.");
+          setLivenessResult({ ...result, error: true });
         }
       } else {
         alert("Face not detected as live or session failed. Please try again.");
-        setLivenessResult(result); // Show ReferenceImage if confidence too low or failed
+        setLivenessResult({ ...result, error: true });
       }
 
       faceLivenessAnalysis(result);
     } catch (err) {
       console.error("Error fetching liveness results:", err);
       alert("There was an error analyzing the face. Please try again.");
+      setLivenessResult({ error: true });
     }
   };
 
@@ -350,34 +349,27 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       {loading ? (
         <Loader />
       ) : (
-        <>
-          {!livenessResult && (
-            <FaceLivenessDetector
-              sessionId={sessionId}
-              region="us-east-1"
-              onAnalysisComplete={handleAnalysisComplete}
-              onError={(error) => {
-                console.error(error);
-              }}
-            />
-          )}
-        </>
+        <FaceLivenessDetector
+          sessionId={sessionId}
+          region="us-east-1"
+          onAnalysisComplete={handleAnalysisComplete}
+          onError={(error) => {
+            console.error("Face Liveness Error:", error);
+          }}
+        />
       )}
 
-      {/* Show reference image only on failure */}
-      {livenessResult && (
+      {livenessResult?.error && (
         <ReferenceImage
           faceLivenessAnalysis={livenessResult}
           tryagain={() => window.location.reload()}
         />
       )}
 
-      {/* Hidden form for success */}
       <form
         name="frm"
         method="post"
         action="https://vfseu.mioot.com/forms/UAT/PhotoVerify/submission/"
-        style={{ display: "none" }}
       >
         <input
           type="hidden"

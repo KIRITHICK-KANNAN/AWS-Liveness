@@ -56,7 +56,7 @@ button.amplify-button.amplify-field-group__control.amplify-button--primary {
 .amplify-liveness-toast.amplify-liveness-toast--primary.amplify-liveness-toast--large {
   background: transparent !important;
   font-size: 1.2rem !important;
-  margin-top: -30px;
+  /* margin-top: -30px; */
   /* margin-left: 72px; */
 }
 .amplify-liveness-camera-module {
@@ -73,6 +73,11 @@ button.amplify-button.amplify-field-group__control.amplify-button--primary {
   background: red !important;
   display: none;
 }
+.amplify-liveness-camera-module
+{
+  border : none !important;
+}
+ 
 
 @media (max-width: 767px) {
 }
