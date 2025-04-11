@@ -199,6 +199,15 @@ function FaceLiveness({ faceLivenessAnalysis }) {
           alert("❌ Failed to send image to the API.");
         }
       } else {
+        <Button
+          variation="primary"
+          type="submit"
+          marginTop={tokens.space.large}
+          marginBottom={tokens.space.large}
+          onClick={tryagain}
+        >
+          Try Again
+        </Button>;
         alert("Face not detected as live or session failed. Please try again.");
       }
 
@@ -206,6 +215,15 @@ function FaceLiveness({ faceLivenessAnalysis }) {
     } catch (err) {
       console.error("Error fetching liveness results:", err);
       alert("There was an error analyzing the face. Please try again.");
+      <Button
+        variation="primary"
+        type="submit"
+        marginTop={tokens.space.large}
+        marginBottom={tokens.space.large}
+        onClick={tryagain}
+      >
+        Try Again
+      </Button>;
     }
   };
 
@@ -226,7 +244,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
 
       {livenessResult && (
         <ReferenceImage
-          faceLivenessAnalysis={livenessResult}
+          // faceLivenessAnalysis={livenessResult}
           tryagain={() => window.location.reload()}
         />
       )}
