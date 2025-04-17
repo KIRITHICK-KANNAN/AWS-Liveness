@@ -690,6 +690,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
   const [loading, setLoading] = useState(true);
   const [sessionId, setSessionId] = useState(null);
   const [livenessFailed, setLivenessFailed] = useState(false);
+  const [livenesScore, setLivenesScore] = useState(0);
 
   const endpoint = process.env.REACT_APP_ENV_API_URL || "";
 
@@ -724,6 +725,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
         result.Status === "SUCCEEDED" &&
         result.Confidence >= 0.92
       ) {
+        setLivenesScore(result.Confidence);
         const _response = await fetch(
           "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/",
           {
@@ -816,6 +818,12 @@ function FaceLiveness({ faceLivenessAnalysis }) {
           id="session_token"
           name="session_token"
           value={session_token}
+        />
+        <input
+          type="hidden"
+          id="liveness_score"
+          name="liveness_score"
+          value={livenesScore}
         />
       </form>
     </>
