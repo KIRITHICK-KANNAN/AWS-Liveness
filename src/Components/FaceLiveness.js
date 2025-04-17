@@ -722,8 +722,8 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       if (
         data.statusCode === 200 &&
         result.Status === "SUCCEEDED" &&
-        result.Confidence >= 95
         // (result.Confidence === 0.9 || result.Confidence === 0.92)
+        result.Confidence >= 0.95
       ) {
         const _response = await fetch(
           "https://vfseu.mioot.com/forms/UAT/PhotoVerify/Test/",
