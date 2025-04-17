@@ -761,9 +761,10 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       faceLivenessAnalysis(result);
     } catch (err) {
       console.error("Error fetching liveness results:", err);
-      alert("Face not detected as live. Please try again with a real face.");
+      alert(
+        "Face not detected as live. Please try again with a real face. catch error"
+      );
       setLivenessFailed(true);
-      console.log("Liveness result:", session_id, session_token, result);
     }
   };
 
