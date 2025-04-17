@@ -718,11 +718,12 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       const result = data.body;
 
       console.log("Liveness result:", session_id, session_token, result);
+      console.log("Confidence Score:", livenessResult.Confidence);
 
       if (
-        result.Confidence >= 95 &&
         data.statusCode === 200 &&
-        result.Status === "SUCCEEDED"
+        result.Status === "SUCCEEDED" &&
+        result.Confidence >= 95
         // (result.Confidence === 0.9 || result.Confidence === 0.92)
       ) {
         const _response = await fetch(
