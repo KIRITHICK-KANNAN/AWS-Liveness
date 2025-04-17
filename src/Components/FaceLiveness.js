@@ -718,7 +718,6 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       const result = data.body;
 
       console.log("Liveness result:", session_id, session_token, result);
-      console.log("Confidence Score:", livenessResult.Confidence);
 
       if (
         data.statusCode === 200 &&
