@@ -750,10 +750,12 @@ function FaceLiveness({ faceLivenessAnalysis }) {
             "Face not detected as live. Please try again with a real face."
           );
           setLivenessFailed(true);
+          console.log("Liveness result:", session_id, session_token, result);
         }
       } else {
         alert("Face not detected as live. Please try again with a real face.");
         setLivenessFailed(true);
+        console.log("Liveness result:", session_id, session_token, result);
       }
 
       faceLivenessAnalysis(result);
@@ -761,6 +763,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       console.error("Error fetching liveness results:", err);
       alert("Face not detected as live. Please try again with a real face.");
       setLivenessFailed(true);
+      console.log("Liveness result:", session_id, session_token, result);
     }
   };
 
