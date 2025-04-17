@@ -720,7 +720,7 @@ function FaceLiveness({ faceLivenessAnalysis }) {
       console.log("Liveness result:", session_id, session_token, result);
 
       if (
-        result.Confidence >= 0.92 &&
+        result.Confidence >= 95 &&
         data.statusCode === 200 &&
         result.Status === "SUCCEEDED"
         // (result.Confidence === 0.9 || result.Confidence === 0.92)
